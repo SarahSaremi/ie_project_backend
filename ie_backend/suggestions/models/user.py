@@ -35,3 +35,7 @@ class Student(User):
         blank=False,
         unique=True,
     )
+
+    def __str__(self):
+        return "{} - {}".format(self.student_number, self.name)
+

@@ -31,3 +31,7 @@ class Suggestion(models.Model):
         choices=SUGGESTION_STATES,
         verbose_name='وضعیت'
     )
+
+    def __str__(self):
+        return "{} - {}".format(self.subject, self.submission_date.date())
+
