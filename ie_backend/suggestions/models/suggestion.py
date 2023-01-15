@@ -1,7 +1,7 @@
 from django.db import models
 
-from ie_backend.suggestions.enums import SUGGESTION_STATES, RELATED_DEPARTMENTS
-from ie_backend.suggestions.models import Student
+from suggestions.enums import SUGGESTION_STATES
+from suggestions.models import Student
 
 
 class Suggestion(models.Model):
@@ -18,7 +18,6 @@ class Suggestion(models.Model):
     )
     related_department = models.CharField(
         max_length=200,
-        choices=RELATED_DEPARTMENTS,
         verbose_name='بخش مربوطه'
     )
     student = models.ForeignKey(

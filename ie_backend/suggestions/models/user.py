@@ -10,7 +10,8 @@ class User(models.Model):
         max_length=50,
         verbose_name='نام کاربری',
         null=False,
-        blank=False
+        blank=False,
+        unique=True,
     )
     password = models.CharField(
         max_length=50,
@@ -31,5 +32,6 @@ class Student(User):
         max_length=12,
         verbose_name='شماره دانشجویی',
         null=False,
-        blank=False
+        blank=False,
+        unique=True,
     )
