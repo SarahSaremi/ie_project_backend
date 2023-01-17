@@ -8,6 +8,9 @@ from cands.serializers.user import StudentSerializer
 
 
 class StudentRecordView(APIView):
+    authentication_classes = ()
+    permission_classes = ()
+
     def get(self, format=None):
         students = Student.objects.all()
         serializer = StudentSerializer(students, many=True)

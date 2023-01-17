@@ -5,7 +5,8 @@ from cands.models.user import Student
 
 
 class SuggestionSerializer(serializers.ModelSerializer):
-    student = serializers.CharField(source='student.name')
+    student_name = serializers.CharField(source='student.name')
+    student_number = serializers.CharField(source='student.student_number')
 
     class Meta:
         model = Suggestion

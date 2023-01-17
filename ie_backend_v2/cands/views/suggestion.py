@@ -1,15 +1,16 @@
 from rest_framework import status
-from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ViewSet, ModelViewSet
 
 from cands.models.suggestion import Suggestion
-from cands.models.user import Student
 from cands.serializers.suggestion import SuggestionSerializer
 
 
 class SuggestionRecordView(APIView):
+    authentication_classes = ()
+    permission_classes = ()
+
     def get(self, format=None):
         suggestion = Suggestion.objects.all()
         serializer = SuggestionSerializer(suggestion, many=True)
