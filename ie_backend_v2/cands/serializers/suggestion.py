@@ -15,3 +15,8 @@ class SuggestionSerializer(serializers.ModelSerializer):
         validated_data['student'] = Student.objects.get(id=validated_data['student'])
         suggestion = Suggestion.objects.create(**validated_data)
         return suggestion
+
+    def update(self, instance, validated_data):
+        instance.state = validated_data.get('state', instance.state)
+        instance.save()
+        return instance
